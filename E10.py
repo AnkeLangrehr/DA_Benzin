@@ -24,6 +24,7 @@ for file in files:
 df_prices_2022 = pd.concat(dfFiles)
 print(df_prices_2022.columns)
 print(df_prices_2022.columns.dtype)
+df_prices_2022.astype({'e10':'float32'})
 
 df_prices_2022.drop(df_prices_2022[df_prices_2022['e10'] <= 0.0].index, inplace=True)
 df_prices_2022.drop(df_prices_2022[df_prices_2022['e10'] >= 4.0].index, inplace=True)

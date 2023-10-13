@@ -7,11 +7,6 @@ from pathlib import Path
 
 path = r'data\stations\2023\10\2023-10-12-stations.csv'
 
-# Get the files from the path provided in the OP
-# csv_files = Path(path).rglob('*.csv',
-#    index_col=0,
-# )  # .rglob to get subdirectories
-
 dfs = pd.read_csv(path,
                   index_col=0, )
 
