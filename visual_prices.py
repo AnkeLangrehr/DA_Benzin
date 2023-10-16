@@ -13,20 +13,30 @@ print(dfPrices.dtypes)
 xData = []
 yData = []
 zData = []
-#pd.to_datetime(
-dfPrices['time'] = pd.to_datetime(dfPrices['date'])
+
+dfPrices["time"] = pd.to_datetime(dfPrices["date"])
+dfPrices["time"] = dfPrices["time"].dt.strftime('%H:%M')
 date = []
 
-# for index, s in dfPrices.iterrows():
-#     yData.append(s['diesel'])
-#     xData.append(s["e10"])
-#     zData.append(s["e5"])
+plt.hist( dfPrices["e10"] )
+plt.title("E10 1. Stand")
+plt.show()
 
-# plt.scatter(date,yData)
-for col in ['diesel', 'e10', 'e5']:
-    time = dfPrices['time']
-    timeConv = pd.to_datetime(time).dt.time
-    plt.xlabel=timeConv
-    plt.plot(timeConv, dfPrices[col])
 
+dfPrices = dfPrices.drop(dfPrices[dfPrices['diesel'] <= 1.0].index, inplace=False)
+dfPrices = dfPrices.drop(dfPrices[dfPrices['e10'] <= 1.0].index, inplace=False)
+dfPrices = dfPrices.drop(dfPrices[dfPrices['e5'] <= 1.0].index, inplace=False)
+
+plt.hist( dfPrices["e10"] )
+plt.title("E10 2.Stand")
+plt.show()
+
+
+dfPrices = dfPrices.drop(dfPrices[dfPrices['diesel'] >= 5.0].index, inplace=False)
+dfPrices = dfPrices.drop(dfPrices[dfPrices['e10'] >= 5.0].index, inplace=False)
+dfPrices = dfPrices.drop(dfPrices[dfPrices['e5'] >= 5.0].index, inplace=False)
+dfPrices.dropna()
+
+plt.hist( dfPrices["e10"] )
+plt.title("E10 3.Stand")
 plt.show()

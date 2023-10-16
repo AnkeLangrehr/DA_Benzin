@@ -53,39 +53,39 @@ for index, s in dfStations.iterrows():
 plt.scatter(x=xData, y=yData)
 plt.show()
 
-#Daten passen. Abfahrt!
-
-data = list(zip(xData, yData))
-
-inertias = []
-
-for i in range(1,20):
-    kmeans = KMeans(n_clusters=i)
-    kmeans.fit(data)
-    inertias.append(kmeans.inertia_)
-
-plt.plot(range(1,20), inertias, marker='o')
-plt.title('Elbow method')
-plt.xlabel('Number of clusters')
-plt.ylabel('Inertia')
-plt.show()
-
-
-kmeans = KMeans(n_clusters=3)
-kmeans.fit(data)
-
-plt.scatter(xData, yData, c=kmeans.labels_)
-plt.show()
-
-kmeans = KMeans(n_clusters=4)
-kmeans.fit(data)
-
-plt.scatter(xData, yData, c=kmeans.labels_)
-plt.show()
-
-kmeans = KMeans(n_clusters=5)
-kmeans.fit(data)
-
-plt.scatter(xData, yData, c=kmeans.labels_)
-plt.show()
+# #Daten passen. Abfahrt!
+# Hier folgt K-Means
+# data = list(zip(xData, yData))
+#
+# inertias = []
+#
+# for i in range(1,20):
+#     kmeans = KMeans(n_clusters=i)
+#     kmeans.fit(data)
+#     inertias.append(kmeans.inertia_)
+#
+# plt.plot(range(1,20), inertias, marker='o')
+# plt.title('Elbow method')
+# plt.xlabel('Number of clusters')
+# plt.ylabel('Inertia')
+# plt.show()
+#
+#
+# kmeans = KMeans(n_clusters=3)
+# kmeans.fit(data)
+#
+# plt.scatter(xData, yData, c=kmeans.labels_)
+# plt.show()
+#
+# kmeans = KMeans(n_clusters=4)
+# kmeans.fit(data)
+#
+# plt.scatter(xData, yData, c=kmeans.labels_)
+# plt.show()
+#
+# kmeans = KMeans(n_clusters=5)
+# kmeans.fit(data)
+#
+# plt.scatter(xData, yData, c=kmeans.labels_)
+# plt.show()
 
